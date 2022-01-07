@@ -1,0 +1,4 @@
+Bundle-Name: employee-rest-service-test
+Bundle-SymbolicName: com.liferay.rest.service.test
+Bundle-Version: 1.0.0
+-includeresource: com.liferay.rest.service.client.jar=../employee-rest-service-client/build/libs/com.liferay.rest.service.client-1.0.0.jar;lib:=true

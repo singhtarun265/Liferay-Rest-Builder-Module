@@ -1,0 +1,7 @@
+apiDir: "../employee-rest-service-api/src/main/java"
+apiPackagePath: "com.liferay.rest.service"
+application:
+    baseURI: "/employee-rest-service"
+    className: "EmployeeRestServiceApplication"
+    name: "EmployeeRestService"
+author: "Argil DX"

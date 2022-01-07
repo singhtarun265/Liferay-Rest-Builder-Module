@@ -1,0 +1,3 @@
+Bundle-Name: employee-rest-service-impl
+Bundle-SymbolicName: com.liferay.rest.service.impl
+Bundle-Version: 1.0.0

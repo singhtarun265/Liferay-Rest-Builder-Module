@@ -1,0 +1,6 @@
+Bundle-Name: employee-rest-service-api
+Bundle-SymbolicName: com.liferay.rest.service.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.liferay.rest.service.dto.v1_0,\
+	com.liferay.rest.service.resource.v1_0

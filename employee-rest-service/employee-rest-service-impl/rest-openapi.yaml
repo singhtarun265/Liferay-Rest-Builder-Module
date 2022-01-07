@@ -1,0 +1,83 @@
+info:
+  description: EmployeeRestService REST API. A Java client JAR is available for use with the group ID 'com.liferay', artifact ID 'com.liferay.rest.service.client', and version '1.0.0'.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: EmployeeRestService
+  version: v1.0
+security:
+    - implicit:
+        - read
+        - write
+openapi: 3.0.1        
+paths: 
+  /v1.0/employee/employee-info/{empId}:
+    get:
+      operationId: getEmployeeInfo
+      tags:
+      - EmployeeAllInfo
+      description: Retrieves the employee information based on employee ID.
+      parameters:
+      - name: empId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmployeeAllInfo'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/EmployeeAllInfo'
+components:
+  securitySchemes:
+    OAuth2:
+        type: oauth2
+        flows:
+          authorizationCode:
+            authorizationUrl: /oauth/authorize
+            tokenUrl: /oauth/token
+            scopes:
+              EmployeeRestService.everything.read: EmployeeRestService.everything.read
+
+  schemas:
+    EmployeeAllInfo:
+      type: object
+      properties:
+        empId:
+          type: integer
+          format: int64
+        jobTitle:
+          type: string
+          description: It contains job title name.
+          readOnly: true
+        deptId:
+          type: integer
+          format: int64
+        userName:
+          type: string
+          description: It contains username.
+          readOnly: true
+        salary:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        phoneNo:
+          type: string
+          description: It contains phone no.
+          readOnly: true
+        name:
+          type: string
+          description: It contains username.
+          readOnly: true
+        projectId:
+          type: integer
+          format: int64
+      xml:
+        name: EmployeeAllInfo
