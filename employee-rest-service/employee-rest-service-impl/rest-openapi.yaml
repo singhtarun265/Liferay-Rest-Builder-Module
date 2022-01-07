@@ -5,10 +5,6 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   title: EmployeeRestService
   version: v1.0
-security:
-    - implicit:
-        - read
-        - write
 openapi: 3.0.1        
 paths: 
   /v1.0/employee/employee-info/{empId}:
@@ -35,15 +31,14 @@ paths:
                 $ref: '#/components/schemas/EmployeeAllInfo'
 components:
   securitySchemes:
-    OAuth2:
-        type: oauth2
-        flows:
-          authorizationCode:
-            authorizationUrl: /oauth/authorize
-            tokenUrl: /oauth/token
-            scopes:
-              EmployeeRestService.everything.read: EmployeeRestService.everything.read
-
+    oAuth2Implicit:
+      type: oauth2
+      description: Token based authentication
+      flows: 
+        implicit:
+          authorizationUrl: http://localhost:8081/o/oauth2/token
+          scopes:
+            EmployeeRestService.everything.read: read your employee information
   schemas:
     EmployeeAllInfo:
       type: object
@@ -81,3 +76,6 @@ components:
           format: int64
       xml:
         name: EmployeeAllInfo
+security: 
+  - oAuth2Implicit: 
+    - EmployeeRestService.everything.read
